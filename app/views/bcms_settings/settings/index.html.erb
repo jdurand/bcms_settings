@@ -1,0 +1,37 @@
+<% page_title "Administration / General Configuration" %>
+<% @toolbar_title = "General Configuration" %>
+
+<div class="roundedcorners">
+  <table  class="data" width="100%">
+    <thead>
+      <tr>
+        <th class="first" colspan="2" style="width: 20%;"><div class="dividers">Key</div></th>
+        <th class="last" colspan="2"><div class="dividers">Value</div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @config.list.each do |k, v| %>
+      <tr>
+        <td class="first"></td>
+        <td><div class="dividers"><%= k %></div></td>
+        <td style="white-space: nowrap"><%= v %></td>
+        <td class="last"></td>
+      </tr>
+    <% end %>
+    <% if @config.list.empty? %>
+      <tr>
+        <td class="first">&nbsp;</td>
+        <td colspan="3" style="height: 30px; padding-top:10px; letter-spacing: 2px;">No configuration set.</td>
+        <td class="last">
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <%= render :partial => "add_config" %>
+  </tfoot>
+</table>
+<div class="tl"></div>
+<div class="tr"></div>
+<div class="bl"></div>
+<div class="br"></div>
+</div>

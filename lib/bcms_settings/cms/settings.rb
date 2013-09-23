@@ -229,6 +229,14 @@ module Cms
         "#<Cms::Settings: #{@cms_module.name} => #{@cms_module.settings.inspect}>"
       end
 
+      def list
+        @cms_module.settings
+      end
+
+      def set(name, *args)
+        self.method_missing("#{name}=".to_sym, *args)
+      end
+
       def method_missing(method_id, *args)
         num_args = args.length
         method_name = method_id.to_s
