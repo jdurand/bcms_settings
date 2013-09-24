@@ -234,6 +234,7 @@ module Cms
       end
 
       def set(name, *args)
+        name = name.downcase.strip.gsub(/[^\w]/, '')
         self.method_missing("#{name}=".to_sym, *args)
       end
 
